@@ -57,6 +57,7 @@ func handle_user_input(delta: float) -> void:
             state = fsm.IDLE
 
 func handle_ai_input(_delta: float) -> void:
+    # TODO: Cleanup that nastyness
     var ball = get_parent().get_node("Ball")
     if ball != null:
         self.position.y = round_position(ball.position.y - 90)
