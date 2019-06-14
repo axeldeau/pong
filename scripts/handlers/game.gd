@@ -68,7 +68,10 @@ func place_players() -> void:
     p1.position = Vector2(50.0, 270.0)
     var p2: KinematicBody2D = load("res://scenes/components/player.tscn").instance()
     p2.set_name("Player2")
-    p2.AI = true
+    if Global.mode == Global.GAME_MODES.PVP:
+        p2.set_ai(false)
+    else:
+        p2.set_ai(true)
     p2.position = Vector2(1210.0, 270.0)
     add_child(p1)
     add_child(p2)

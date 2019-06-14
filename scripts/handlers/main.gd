@@ -12,6 +12,9 @@ func _ready():
 func _unhandled_input(event):
     if event is InputEventKey:
         if event.pressed and event.scancode == KEY_SPACE:
-            var ok = get_tree().change_scene_to(next_scene)
-            if ok != 0:
-                print("Handle change_scene_to() error")
+            Global.set_mode(Global.GAME_MODES.PVP)
+        if event.pressed and event.scancode == KEY_ENTER:
+            Global.set_mode(Global.GAME_MODES.PVAI)
+        var ok = get_tree().change_scene_to(next_scene)
+        if ok != 0:
+            print("Handle change_scene_to() error")

@@ -70,3 +70,6 @@ func define_player_input() -> Array:
 
 func define_boundary() -> Array:
     return [0.0, OS.window_size.y - 180]
+
+func set_ai(b: bool) -> void:
+    self.AI = b 

@@ -29,6 +29,7 @@ config/icon="res://sprites/project/ping-pong.png"
 [autoload]
 
 Randomizer="*res://scripts/libs/random.gd"
+Global="*res://scripts/global/global.gd"
 
 [debug]
 
