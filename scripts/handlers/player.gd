@@ -9,7 +9,6 @@ var boundary: Array
 var state: int = 0
 
 var input: Array
-var decision: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -57,23 +56,10 @@ func handle_user_input(delta: float) -> void:
         else:
             state = fsm.IDLE
 
-func handle_ai_input(delta: float) -> void:
+func handle_ai_input(_delta: float) -> void:
     var ball = get_parent().get_node("Ball")
     if ball != null:
-        var val: int = Randomizer.get_random(100)
-        if val < 30:
-            decision = true
-        if decision:
-            self.position.y = round_position(ball.position.y - 90)
-        else:
-            var motion: Vector2
-            if ball.position.x > OS.window_size.x * 0.7:
-                if ball.position.y > OS.window_size.y/2:
-                    # self.position.y = round_position(ball.position.y - 90 * delta)
-                    motion = Vector2(0.0, (ball.position.y - 270) * delta )
-                else:
-                    motion = Vector2(0.0, (ball.position.y + 270) * delta )
-            var _info = move_and_collide(motion)
+        self.position.y = round_position(ball.position.y - 90)
 
 func define_player_input() -> Array:
     if self.name == "Player1":
