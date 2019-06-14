@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/handlers/game.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/pause.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 680, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 360 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://fonts/Pixelmania.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 100
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://fonts/Pixelmania.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = SubResource( 5 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+max_score = null
+delay = null
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="Borders"]
+position = Vector2( 640, -10 )
+shape = SubResource( 1 )
+
+[node name="Down" type="CollisionShape2D" parent="Borders"]
+position = Vector2( 640, 730 )
+shape = SubResource( 1 )
+
+[node name="Goal1" type="CollisionShape2D" parent="Borders"]
+position = Vector2( -30, 360 )
+shape = SubResource( 2 )
+
+[node name="Goal2" type="CollisionShape2D" parent="Borders"]
+position = Vector2( 1310, 360 )
+shape = SubResource( 2 )
+
+[node name="Countdown" type="Label" parent="."]
+margin_left = 213.0
+margin_top = 250.0
+margin_right = 1066.0
+margin_bottom = 440.0
+custom_fonts/font = SubResource( 4 )
+align = 1
+
+[node name="Score1" type="Label" parent="."]
+margin_left = 530.0
+margin_top = 10.0
+margin_right = 605.0
+margin_bottom = 105.0
+custom_fonts/font = SubResource( 6 )
+text = "0"
+
+[node name="Score2" type="Label" parent="."]
+margin_left = 670.0
+margin_top = 10.0
+margin_right = 745.0
+margin_bottom = 105.0
+custom_fonts/font = SubResource( 6 )
+text = "0"
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+points = PoolVector2Array( 640, 0, 640, 720 )
+width = 4.0
+default_color = Color( 1, 1, 1, 1 )
+texture_mode = -1082130432
+
+[node name="Menu" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = 540.0
+margin_top = 300.0
+margin_right = 540.0
+margin_bottom = 300.0
