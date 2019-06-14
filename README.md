@@ -12,6 +12,7 @@ AI is unbeatable for now ☠️
 
 ## Controls
 
+- Use the Escape key for the **Pause** menu
 - Control player 1 with: "w" key for up and "s" key for down
 - Control player 2 with: "arrow_up" key for up and "arrow_down" key for down
 
